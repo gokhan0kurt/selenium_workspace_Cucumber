@@ -57,4 +57,37 @@ public class AmazonStepDefinitions {
         Assert.assertTrue(actualResult.contains(expectedResult));
 
     }
+
+    @Then("Samsung icin arama yapar")
+    public void samsungIcinAramaYapar() {
+        amazonPage.searchBox.sendKeys("Samsung"+Keys.ENTER);
+
+    }
+
+
+    @Then("Arama sonuclarinin Samsung icerdigini test eder")
+    public void aramaSonuclarininSamsungIcerdiginiTestEder() {
+        String actualResult = amazonPage.searchResult.getText();
+        String expectedResult = "Samsung";
+
+        Assert.assertTrue(actualResult.contains(expectedResult));
+    }
+
+
+    @Given("Kullanici {string} anasayfaya gider")
+    public void kullaniciAnasayfayaGider(String istenenUrl) {
+        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+
+    }
+
+    @Then("{string} icin arama yapar")
+    public void icinAramaYapar(String aranacakKelime) {
+        amazonPage.searchBox.sendKeys(aranacakKelime+Keys.ENTER);
+    }
+
+    @Then("Arama sonuclarinin {string} icerdigini test eder")
+    public void aramaSonuclarininIcerdiginiTestEder(String expectedContent) {
+        Assert.assertTrue(amazonPage.searchResult.getText().contains(expectedContent));
+
+    }
 }
