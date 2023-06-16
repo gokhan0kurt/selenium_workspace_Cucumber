@@ -25,5 +25,8 @@ public class AmazonPage {
     @FindBy(xpath = "(//div[@class='sg-col-inner'])[1]")
     public WebElement searchResult;
 
+    @FindBy(xpath = "//input[@name='search_query']")
+    public WebElement yotubeSearchBox;
+
 
 }
