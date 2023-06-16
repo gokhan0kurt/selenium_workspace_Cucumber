@@ -28,10 +28,8 @@ public class QualitydemyPage {
     @FindBy(xpath = "//a[text()='Instructor']")
     public WebElement successLogin;
 
-
-
-
-
+    @FindBy(xpath = "//*[@class='toast-message']")
+    public WebElement invalidLoginText;
 
 
 }
